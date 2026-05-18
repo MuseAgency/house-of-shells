@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import TwinMark from "./TwinMark";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -20,13 +21,22 @@ export default function ComingSoon() {
         >
           Vol. 01 · Est. 2026
         </motion.span>
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.25, ease }}
+          className="hidden text-champagne sm:block"
+          aria-hidden="true"
+        >
+          <TwinMark className="h-4 w-auto" />
+        </motion.div>
         <motion.span
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease }}
           className="font-display text-[10px] tracking-[0.4em] uppercase text-ink-mute sm:text-xs"
         >
-          The Netherlands
+          Made by twins · NL
         </motion.span>
       </header>
 
@@ -61,7 +71,7 @@ export default function ComingSoon() {
           >
             <span className="h-px w-10 bg-champagne" />
             <span className="font-display text-[10px] tracking-[0.4em] uppercase text-champagne sm:text-xs">
-              An atelier of coastal art
+              Coastal art by twin sisters
             </span>
           </motion.div>
 
@@ -90,8 +100,8 @@ export default function ComingSoon() {
             className="mt-10 max-w-md text-[15px] leading-relaxed text-ink-soft sm:text-base"
           >
             A new home for collectible coastal art. Handpainted scallop shells
-            on canvas, composed into one-of-a-kind pieces inspired by the
-            worlds we love.
+            on canvas, made by twin sisters in pairs — every piece carries our
+            signature: two golden stars, in opposite corners.
           </motion.p>
 
           {/* Status line */}
@@ -106,7 +116,7 @@ export default function ComingSoon() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-sage" />
             </span>
             <span className="font-display text-xs tracking-[0.35em] uppercase text-ink-mute">
-              Launching this summer
+              First Sister Pieces — launching this summer
             </span>
           </motion.div>
 
@@ -143,11 +153,39 @@ export default function ComingSoon() {
         </div>
       </section>
 
+      {/* The Signature — twin concept band */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 1.2, ease }}
+        className="relative z-10 mx-auto max-w-3xl border-t border-champagne/30 px-6 py-16 text-center sm:px-12 sm:py-20"
+      >
+        <div className="mb-6 flex justify-center text-champagne">
+          <TwinMark className="h-6 w-auto" />
+        </div>
+        <p className="font-display text-[10px] tracking-[0.45em] uppercase text-champagne sm:text-xs">
+          The Twin Signature
+        </p>
+        <h2 className="mx-auto mt-6 max-w-xl font-display text-2xl leading-[1.25] font-light text-ink italic sm:text-3xl">
+          Two sisters. Two hands.
+          <br />
+          Two of everything we make.
+        </h2>
+        <p className="mx-auto mt-8 max-w-lg text-[15px] leading-relaxed text-ink-soft sm:text-base">
+          Every canvas is created in matching pairs — our{" "}
+          <span className="italic">Sister Pieces</span>. Each one carries our
+          quiet mark: two golden stars in opposite corners, signed by both of
+          us. Collect one, or both.
+        </p>
+      </motion.section>
+
       {/* Lower band — commissions */}
       <motion.section
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.4, delay: 1.6, ease }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 1.4, ease }}
         className="relative z-10 mx-auto max-w-7xl border-t border-champagne/30 px-6 py-12 sm:px-12 sm:py-16"
       >
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
@@ -181,8 +219,11 @@ export default function ComingSoon() {
           <p className="font-display text-[10px] tracking-[0.35em] uppercase text-ink-mute sm:text-xs">
             © 2026 House of Shells
           </p>
+          <div className="hidden text-champagne/70 sm:block" aria-hidden="true">
+            <TwinMark className="h-3 w-auto" />
+          </div>
           <p className="font-display text-[10px] tracking-[0.35em] uppercase text-ink-mute sm:text-xs">
-            Handcrafted with care
+            Made by twin hands
           </p>
         </div>
       </footer>
