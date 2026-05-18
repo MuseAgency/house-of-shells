@@ -19,7 +19,7 @@ export default function ComingSoon() {
           transition={{ duration: 1.2, delay: 0.2, ease }}
           className="font-display text-[10px] tracking-[0.4em] uppercase text-ink-mute sm:text-xs"
         >
-          Vol. 01 · Est. 2026
+          Coastal art atelier
         </motion.span>
         <motion.div
           initial={{ opacity: 0, y: -8 }}
