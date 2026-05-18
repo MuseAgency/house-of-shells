@@ -29,23 +29,33 @@ export default function CommissionForm() {
     setStatus("submitting");
     setErrorMessage(null);
 
-    const formData = new FormData(e.currentTarget);
-    // Netlify form name
-    formData.append("form-name", "commission");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload: Record<string, string> = { "form-name": "commission" };
+    data.forEach((value, key) => {
+      payload[key] = value.toString();
+    });
+
+    const encode = (obj: Record<string, string>) =>
+      Object.keys(obj)
+        .map(
+          (k) => `${encodeURIComponent(k)}=${encodeURIComponent(obj[k])}`,
+        )
+        .join("&");
 
     try {
-      const res = await fetch("/", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        body: encode(payload),
       });
-
-      if (!res.ok) throw new Error(`Submit failed (${res.status})`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
+      console.error("commission form submit failed", err);
     }
   }
 
