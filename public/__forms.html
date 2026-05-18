@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netlify Forms detection</title>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <!--
+    This file exists ONLY so Netlify's post-build form parser can detect
+    our forms and register them. Real submissions happen via fetch() from
+    the CommissionForm component, posted to "/" with `form-name=commission`.
+    Do not delete unless you remove Netlify Forms entirely.
+  -->
+  <form name="commission" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="whatsapp" />
+    <input type="text" name="referrer" />
+    <input type="text" name="theme" />
+    <input type="text" name="size" />
+    <input type="text" name="budget" />
+    <input type="text" name="deadline" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 import TwinMark from "./TwinMark";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -11,34 +14,7 @@ export default function ComingSoon() {
     <main className="relative min-h-screen overflow-hidden bg-pearl text-ink">
       <div className="grain" />
 
-      {/* Top editorial bar */}
-      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-8 sm:px-12 sm:py-10">
-        <motion.span
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease }}
-          className="font-display text-[10px] tracking-[0.4em] uppercase text-ink-mute sm:text-xs"
-        >
-          Coastal art atelier
-        </motion.span>
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.25, ease }}
-          className="hidden text-champagne sm:block"
-          aria-hidden="true"
-        >
-          <TwinMark className="h-4 w-auto" />
-        </motion.div>
-        <motion.span
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease }}
-          className="font-display text-[10px] tracking-[0.4em] uppercase text-ink-mute sm:text-xs"
-        >
-          Made by twins · NL
-        </motion.span>
-      </header>
+      <SiteHeader />
 
       {/* Hero: asymmetric editorial layout */}
       <section className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 pt-8 pb-20 sm:px-12 lg:grid-cols-12 lg:gap-16 lg:pt-16">
@@ -178,6 +154,17 @@ export default function ComingSoon() {
           quiet mark: two golden stars in opposite corners, signed by both of
           us. Collect one, or both.
         </p>
+        <Link
+          href="/about"
+          className="group mt-8 inline-flex items-center gap-3 font-display text-sm tracking-[0.3em] uppercase text-ink-mute transition-colors hover:text-ink"
+        >
+          <span className="border-b border-ink-mute/40 pb-1 transition-colors group-hover:border-ink">
+            Read our story
+          </span>
+          <span className="text-sage transition-transform duration-500 group-hover:translate-x-1">
+            →
+          </span>
+        </Link>
       </motion.section>
 
       {/* Lower band — commissions */}
@@ -199,34 +186,21 @@ export default function ComingSoon() {
               Tell us your story.
             </h2>
           </div>
-          <a
-            href="mailto:hello@houseofshells.nl"
+          <Link
+            href="/contact"
             className="group inline-flex items-center gap-3 font-display text-base text-ink italic transition-colors hover:text-sage-deep sm:text-lg"
           >
             <span className="border-b border-ink/40 pb-1 transition-colors group-hover:border-sage-deep">
-              hello@houseofshells.nl
+              Start a commission
             </span>
             <span className="text-sage transition-transform duration-500 group-hover:translate-x-1">
               →
             </span>
-          </a>
+          </Link>
         </div>
       </motion.section>
 
-      {/* Footer */}
-      <footer className="relative z-10 mx-auto max-w-7xl px-6 py-10 sm:px-12">
-        <div className="flex items-center justify-between border-t border-ink/10 pt-8">
-          <p className="font-display text-[10px] tracking-[0.35em] uppercase text-ink-mute sm:text-xs">
-            © 2026 House of Shells
-          </p>
-          <div className="hidden text-champagne/70 sm:block" aria-hidden="true">
-            <TwinMark className="h-3 w-auto" />
-          </div>
-          <p className="font-display text-[10px] tracking-[0.35em] uppercase text-ink-mute sm:text-xs">
-            Handcrafted with care
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
