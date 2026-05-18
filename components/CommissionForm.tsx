@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const sizes = [
-  { value: "small", label: "Small (≤ 20×20 cm)" },
+  { value: "small", label: "Small (~20×30 cm)" },
   { value: "medium", label: "Medium (~30×40 cm)" },
   { value: "large", label: "Large (~50×70 cm)" },
   { value: "xlarge", label: "Extra large (60×80 cm+)" },
