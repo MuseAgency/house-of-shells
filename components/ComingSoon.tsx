@@ -71,7 +71,7 @@ export default function ComingSoon() {
           >
             <span className="h-px w-10 bg-champagne" />
             <span className="font-display text-[10px] tracking-[0.4em] uppercase text-champagne sm:text-xs">
-              Coastal art by twin sisters
+              Inspired by the worlds we love
             </span>
           </motion.div>
 
