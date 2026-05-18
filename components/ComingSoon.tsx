@@ -223,7 +223,7 @@ export default function ComingSoon() {
             <TwinMark className="h-3 w-auto" />
           </div>
           <p className="font-display text-[10px] tracking-[0.35em] uppercase text-ink-mute sm:text-xs">
-            Made by twin hands
+            Handcrafted with care
           </p>
         </div>
       </footer>
