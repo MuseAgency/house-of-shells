@@ -33,6 +33,18 @@ export default function SiteFooter() {
           Handcrafted with care
         </p>
       </div>
+
+      <div className="mt-6 flex justify-center">
+        <a
+          href="https://museagency.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[11px] tracking-[0.04em] text-ink-mute/60 transition-opacity hover:opacity-100 hover:text-ink-mute"
+          style={{ opacity: 0.6 }}
+        >
+          Website door Muse Agency
+        </a>
+      </div>
     </footer>
   );
 }
